@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f5f7">
+<meta name="description" content="Aditya Tiwari — Product Management, AI-powered products, customer understanding, and business analysis.">
+<title>Aditya Tiwari — Product & AI</title>
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --surface: rgba(255,255,255,.78);
+    --ink: #1d1d1f;
+    --muted: #6e6e73;
+    --blue: #06c;
+    --line: rgba(0,0,0,.09);
+    --radius: 28px;
+    --max: 1080px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--bg);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    letter-spacing: -.018em;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--blue); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .nav-wrap {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(245,245,247,.82);
+    backdrop-filter: saturate(180%) blur(22px);
+    border-bottom: 1px solid rgba(0,0,0,.06);
+  }
+  nav {
+    max-width: var(--max); margin: auto; padding: 0 24px;
+    height: 54px; display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; letter-spacing: 0;
+  }
+  .brand { color: var(--ink); font-size: 15px; font-weight: 650; letter-spacing: -.03em; }
+  .nav-links { display: flex; gap: 25px; align-items: center; }
+  .nav-links a { color: #424245; }
+  .nav-cta { background: var(--blue); color: white !important; padding: 7px 13px; border-radius: 999px; }
+  main { overflow: hidden; }
+  .hero {
+    min-height: 620px; display: grid; place-items: center; text-align: center;
+    padding: 95px 24px 90px; position: relative;
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(114,168,255,.23), transparent 48%),
+      linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
+  }
+  .eyebrow { color: var(--muted); font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  h1 { font-size: clamp(52px, 9vw, 100px); line-height: .98; letter-spacing: -.075em; margin: 22px 0 20px; font-weight: 720; }
+  .gradient-text {
+    background: linear-gradient(100deg, #1d1d1f 15%, #4267d5 53%, #7c54c8 88%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero-copy { max-width: 690px; margin: 0 auto; font-size: clamp(19px, 2.5vw, 25px); line-height: 1.42; color: #515154; letter-spacing: -.035em; }
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+  .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 19px; border-radius: 999px; font-size: 15px; font-weight: 550; transition: transform .2s, box-shadow .2s; }
+  .button:hover { text-decoration: none; transform: translateY(-2px); }
+  .button.primary { background: var(--blue); color: white; box-shadow: 0 5px 16px rgba(0,102,204,.18); }
+  .button.secondary { border: 1px solid rgba(0,0,0,.16); color: var(--blue); background: rgba(255,255,255,.55); }
+  .hero-note { margin-top: 54px; font-size: 13px; color: var(--muted); }
+  .section { max-width: var(--max); margin: 0 auto; padding: 80px 24px; }
+  .section-heading { margin-bottom: 32px; }
+  .section-kicker { font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); font-weight: 650; }
+  h2 { font-size: clamp(34px, 5vw, 54px); letter-spacing: -.065em; line-height: 1.03; margin: 10px 0 0; }
+  .lede { font-size: 19px; line-height: 1.55; color: #515154; max-width: 760px; margin: 20px 0 0; letter-spacing: -.025em; }
+  .about-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; }
+  .card { border-radius: var(--radius); background: #fff; padding: 30px; box-shadow: 0 2px 10px rgba(0,0,0,.025); }
+  .about-card { min-height: 255px; display: flex; flex-direction: column; justify-content: space-between; }
+  .about-card p { font-size: 20px; line-height: 1.5; margin: 0; letter-spacing: -.03em; }
+  .card-label { color: var(--muted); font-size: 13px; margin-bottom: 15px; }
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
+  .pill { border: 1px solid var(--line); padding: 9px 12px; border-radius: 999px; color: #424245; font-size: 13px; background: #fbfbfd; }
+  .stat-card { background: #1d1d1f; color: white; display: flex; flex-direction: column; justify-content: space-between; }
+  .stat-card .big { font-size: 48px; font-weight: 700; letter-spacing: -.07em; }
+  .stat-card p { color: #c5c5ca; line-height: 1.45; margin: 8px 0 0; font-size: 15px; }
+  .experience-list { display: grid; gap: 14px; }
+  .experience { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; padding: 27px 30px; }
+  .experience h3 { font-size: 23px; margin: 0 0 6px; letter-spacing: -.04em; }
+  .role { color: var(--blue); font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+  .experience p, .experience li { color: #515154; line-height: 1.55; font-size: 15px; }
+  .experience p { margin: 0; }
+  .date { color: var(--muted); font-size: 13px; text-align: right; white-space: nowrap; }
+  .experience ul { padding-left: 19px; margin: 14px 0 0; }
+  .experience li { margin: 5px 0; }
+  .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .education h3 { font-size: 22px; margin: 0 0 9px; letter-spacing: -.04em; }
+  .education .degree { color: #515154; font-size: 15px; line-height: 1.5; }
+  .education .year { color: var(--muted); font-size: 13px; margin-top: 18px; }
+  .contact {
+    text-align: center; border-radius: 36px; padding: 70px 24px;
+    background: linear-gradient(145deg, #e8efff, #f8f8fb 52%, #ece5ff);
+  }
+  .contact h2 { max-width: 680px; margin: 12px auto 18px; }
+  .contact p { color: #515154; font-size: 18px; line-height: 1.5; max-width: 580px; margin: 0 auto; }
+  .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+  footer { max-width: var(--max); margin: auto; padding: 24px; display: flex; justify-content: space-between; gap: 15px; color: var(--muted); font-size: 12px; }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reveal { opacity: 1; transform: none; transition: none; } * { transition-duration: .01ms !important; } }
+  @media (max-width: 700px) {
+    .nav-links { gap: 13px; } .nav-links a:not(.nav-cta) { display: none; }
+    .hero { min-height: 560px; padding-top: 78px; }
+    .section { padding: 58px 18px; }
+    .about-grid, .education-grid { grid-template-columns: 1fr; }
+    .experience { grid-template-columns: 1fr; padding: 24px; }
+    .date { text-align: left; grid-row: 1; }
+    .card { padding: 24px; border-radius: 23px; }
+    .contact { border-radius: 27px; padding: 52px 20px; }
+    footer { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="nav-wrap">
+  <nav aria-label="Main navigation">
+    <a class="brand" href="#home">Aditya Tiwari</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a class="nav-cta" href="#contact">Let's connect</a>
+    </div>
+  </nav>
+</div>
+<main>
+  <section class="hero" id="home">
+    <div class="reveal">
+      <div class="eyebrow">Product thinking · AI · Customer understanding</div>
+      <h1>Hi, I’m Aditya.<br><span class="gradient-text">I build with purpose.</span></h1>
+      <p class="hero-copy">Exploring Product Management and AI-powered products — turning user problems and customer insights into solutions that deliver real value.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#about">Get to know me <span aria-hidden="true">↘</span></a>
+        <a class="button secondary" href="https://www.linkedin.com/in/aditya-tiwari-97223a21b/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+      </div>
+      <div class="hero-note">Based in Uttar Pradesh, India</div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="about">
+    <div class="section-heading">
+      <div class="section-kicker">A little about me</div>
+      <h2>Curious about people.<br>Focused on useful products.</h2>
+      <p class="lede">My experience across sales, client servicing, market research, and business data has shaped how I think about customer needs and business problems. I’m now building my expertise in product thinking, problem-solving, and AI Product Management.</p>
+    </div>
+    <div class="about-grid">
+      <div class="card about-card">
+        <div>
+          <div class="card-label">What I’m developing</div>
+          <p>Understanding the real problem first, learning from users, and finding practical ways to make products and experiences better.</p>
+        </div>
+        <div class="skill-pills">
+          <span class="pill">Product Development</span><span class="pill">Product Management</span><span class="pill">Business Analysis</span><span class="pill">Customer Understanding</span><span class="pill">Deal Closure</span>
+        </div>
+      </div>
+      <div class="card stat-card">
+        <div>
+          <div class="card-label" style="color:#a1a1a6">My approach</div>
+          <div class="big">Listen.<br>Understand.<br>Solve.</div>
+        </div>
+        <p>Grounded in customer conversations, structured research, and a focus on meaningful outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="experience">
+    <div class="section-heading">
+      <div class="section-kicker">Experience</div>
+      <h2>Learning from the real world.</h2>
+      <p class="lede">Roles that helped me build customer-facing, research, and data skills.</p>
+    </div>
+    <div class="experience-list">
+      <article class="card experience">
+        <div>
+          <h3>Radical Minds Technologies Pvt. Ltd.</h3>
+          <div class="role">Sales Executive</div>
+          <p>Working in a customer-facing sales role, building on experience in customer conversations and deal closure.</p>
+        </div>
+        <div class="date">April 2026 – Present<br>Noida, Uttar Pradesh</div>
+      </article>
+      <article class="card experience">
+        <div>
+          <h3>Cushman &amp; Wakefield</h3>
+          <div class="role">Associate</div>
+          <p>Supported commercial real estate research, reporting, client servicing, and business account workflows.</p>
+          <ul>
+            <li>Conducted market and property research across commercial real estate segments.</li>
+            <li>Collected, cleaned, and analysed data for client presentations.</li>
+            <li>Supported feasibility studies and market-trend reports.</li>
+            <li>Created and maintained B2B company accounts using Salesforce CRM.</li>
+            <li>Used AI tools to identify clients’ commercial real estate footprints.</li>
+            <li>Worked with Salesforce reporting and structured data entry.</li>
+          </ul>
+        </div>
+        <div class="date">April 2024 – April 2025<br>India</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section reveal" id="education">
+    <div class="section-heading">
+      <div class="section-kicker">Education</div>
+      <h2>Building a strong foundation.</h2>
+    </div>
+    <div class="education-grid">
+      <article class="card education">
+        <div class="card-label">University</div>
+        <h3>University of Delhi</h3>
+        <div class="degree">Bachelor of Business Administration (BBA)<br>Finance Investment Analyst</div>
+        <div class="year">August 2024 · As listed in profile</div>
+      </article>
+      <article class="card education">
+        <div class="card-label">School</div>
+        <h3>Sun Valley International School</h3>
+        <div class="degree">Class XII · Business / Commerce<br>Economics and Mathematics</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section reveal" id="contact">
+    <div class="contact">
+      <div class="section-kicker">Have an idea or opportunity?</div>
+      <h2>Let’s make something meaningful.</h2>
+      <p>I’m always open to connecting with people who care about thoughtful products, customer problems, and the possibilities of AI.</p>
+      <div class="contact-links">
+        <a class="button primary" href="mailto:adityatiwari8851255@gmail.com">Email me ↗</a>
+        <a class="button secondary" href="https://www.linkedin.com/in/aditya-tiwari-97223a21b/" target="_blank" rel="noopener noreferrer">LinkedIn profile ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <span>© <span id="year"></span> Aditya Tiwari</span>
+  <span>Designed with clarity, curiosity, and purpose.</span>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
